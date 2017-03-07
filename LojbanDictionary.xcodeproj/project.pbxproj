@@ -13,6 +13,7 @@
 		698D82961E6E5B3800CB8F53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 698D82951E6E5B3800CB8F53 /* Assets.xcassets */; };
 		698D82991E6E5B3800CB8F53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 698D82971E6E5B3800CB8F53 /* LaunchScreen.storyboard */; };
 		698D82A41E6E5B3800CB8F53 /* LojbanDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D82A31E6E5B3800CB8F53 /* LojbanDictionaryTests.swift */; };
+		698D82B01E6E5D0200CB8F53 /* cmavo.json in Resources */ = {isa = PBXBuildFile; fileRef = 698D82AF1E6E5D0200CB8F53 /* cmavo.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		698D829F1E6E5B3800CB8F53 /* LojbanDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LojbanDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		698D82A31E6E5B3800CB8F53 /* LojbanDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LojbanDictionaryTests.swift; sourceTree = "<group>"; };
 		698D82A51E6E5B3800CB8F53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		698D82AF1E6E5D0200CB8F53 /* cmavo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cmavo.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		698D828D1E6E5B3800CB8F53 /* LojbanDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				698D82AE1E6E5C8B00CB8F53 /* Dictionary Files */,
 				698D828E1E6E5B3800CB8F53 /* AppDelegate.swift */,
 				698D82901E6E5B3800CB8F53 /* ViewController.swift */,
 				698D82921E6E5B3800CB8F53 /* Main.storyboard */,
@@ -94,6 +97,14 @@
 				698D82A51E6E5B3800CB8F53 /* Info.plist */,
 			);
 			path = LojbanDictionaryTests;
+			sourceTree = "<group>";
+		};
+		698D82AE1E6E5C8B00CB8F53 /* Dictionary Files */ = {
+			isa = PBXGroup;
+			children = (
+				698D82AF1E6E5D0200CB8F53 /* cmavo.json */,
+			);
+			name = "Dictionary Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				698D82B01E6E5D0200CB8F53 /* cmavo.json in Resources */,
 				698D82991E6E5B3800CB8F53 /* LaunchScreen.storyboard in Resources */,
 				698D82961E6E5B3800CB8F53 /* Assets.xcassets in Resources */,
 				698D82941E6E5B3800CB8F53 /* Main.storyboard in Resources */,

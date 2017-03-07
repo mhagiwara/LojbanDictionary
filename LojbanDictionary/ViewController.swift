@@ -12,7 +12,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        guard let path = Bundle.main.path(forResource: "cmavo", ofType: "json") else {
+            return
+        }
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped) else {
+            return
+        }
+        if let json = try? JSONSerialization.jsonObject(with: data) as! [String: Any] {
+            NSLog("\(json["a"])")
+        } else {
+            return
+        }
+
+        // NSLog("\(json)")
     }
 
     override func didReceiveMemoryWarning() {
