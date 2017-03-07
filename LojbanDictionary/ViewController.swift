@@ -18,13 +18,11 @@ class ViewController: UIViewController {
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped) else {
             return
         }
-        if let json = try? JSONSerialization.jsonObject(with: data) as! [String: Any] {
-            NSLog("\(json["a"])")
-        } else {
+        guard let json = try? JSONSerialization.jsonObject(with: data) as! [String: Any] else {
             return
         }
-
-        // NSLog("\(json)")
+        
+        let dictModel = DictionaryModel(json: json)
     }
 
     override func didReceiveMemoryWarning() {
