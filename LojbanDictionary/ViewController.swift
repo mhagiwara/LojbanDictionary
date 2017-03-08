@@ -10,8 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet weak var queryTextField: UITextField!
+    
+    var dictModel = DictionaryModel()
+    
+    func loadDictionary() {
         guard let path = Bundle.main.path(forResource: "cmavo", ofType: "json") else {
             return
         }
@@ -22,7 +25,13 @@ class ViewController: UIViewController {
             return
         }
         
-        let dictModel = DictionaryModel(json: json)
+        self.dictModel = DictionaryModel(json: json)
+        queryTextField.addTarget(self, action: #selector(ViewController.queryChanged(_:)), for: .editingChanged)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.loadDictionary()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +39,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func queryChanged(_ sender: Any) {
+        NSLog("Query changed: \(self.queryTextField.text)")
+    }
 
 }
 

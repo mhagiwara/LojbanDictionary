@@ -11,33 +11,47 @@ import XCTest
 
 class LojbanDictionaryTests: XCTestCase {
     
-    
     func testDictionaryModel() {
         
         // Test DictionaryEntry
         var entry = DictionaryEntry(json: ["foo": "bar"])
-        XCTAssert(entry == nil)
+        XCTAssertNil(entry)
         
         entry = DictionaryEntry(json: ["word": 1])
-        XCTAssert(entry == nil)
+        XCTAssertNil(entry)
         
         entry = DictionaryEntry(json:
-            ["word": "a", "selmaho": "A"])
-        XCTAssert(entry!.word == "a")
-        XCTAssert(entry!.selmaho == "A")
+            ["word": "a", "english": "b", "selmaho": "A"])
+        XCTAssertEqual("a", entry!.word)
+        XCTAssertEqual("b", entry!.english)
+        XCTAssertEqual("A", entry!.selmaho)
+        XCTAssertEqual("DictionaryEntry(word: \"a\", english: \"b\")", entry!.description)
 
         entry = DictionaryEntry(json:
-            ["word": "a", "selmaho": 1])
-        XCTAssert(entry!.word == "a")
-        XCTAssert(entry!.selmaho == nil)
+            ["word": "a", "english": "b", "selmaho": 1])
+        XCTAssertEqual("a", entry!.word)
+        XCTAssertEqual("b", entry!.english)
+        XCTAssertNil(entry!.selmaho)
         
         // Test DictionaryModel
-        var dict = DictionaryModel(json: [
-            "a": ["word": "a"],
-            "b": ["word": "b"],
-            "x": ["foo", "bar"]
-            ])
+        var dict = DictionaryModel()
         
-        XCTAssert(2 == dict.count())
+        XCTAssertEqual(0, dict.count())
+        
+        dict = DictionaryModel(json: [
+            "a": ["word": "a", "english": "A"],
+            "b": ["word": "b", "english": "B"],
+            "x": ["foo", "bar"],     // missing "word"
+            "y": ["word": "y"]       // missing "english"
+            ])
+        XCTAssertEqual(2, dict.count())
+        
+        var entryScores = dict.search(query: "a")
+        XCTAssertEqual(1, entryScores.count)
+        XCTAssertEqual("a", entryScores.keys.first?.word)
+        
+        entryScores = dict.search(query: "B")
+        XCTAssertEqual(1, entryScores.count)
+        XCTAssertEqual("b", entryScores.keys.first?.word)
     }
 }
