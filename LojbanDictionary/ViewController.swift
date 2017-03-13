@@ -40,7 +40,11 @@ class ViewController: UIViewController {
     }
 
     func queryChanged(_ sender: Any) {
-        NSLog("Query changed: \(self.queryTextField.text)")
+        guard let queryText = self.queryTextField.text else {
+            return
+        }
+        NSLog("Query changed: \(queryText)")
+        self.dictModel.search(query: queryText)
     }
 
 }

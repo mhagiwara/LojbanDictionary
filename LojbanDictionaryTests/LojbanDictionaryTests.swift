@@ -53,5 +53,23 @@ class LojbanDictionaryTests: XCTestCase {
         entryScores = dict.search(query: "B")
         XCTAssertEqual(1, entryScores.count)
         XCTAssertEqual("b", entryScores.keys.first?.word)
+        
+        dict = DictionaryModel(json: [
+            "a": ["word": "a", "english": "a"],
+            "b": ["word": "a", "english": "b"],
+            ])
+        XCTAssertEqual(2, dict.count())
+        var topn = dict.topN(query: "a", n: 1)
+        XCTAssertEqual(1, topn.count)
+        XCTAssertEqual("a", topn[0].word)
+        XCTAssertEqual("a", topn[0].english)
+        
+        topn = dict.topN(query: "a", n: 2)
+        XCTAssertEqual(2, topn.count)
+        XCTAssertEqual("a", topn[0].word)
+        XCTAssertEqual("a", topn[0].english)
+        XCTAssertEqual("a", topn[1].word)
+        XCTAssertEqual("b", topn[1].english)
+
     }
 }

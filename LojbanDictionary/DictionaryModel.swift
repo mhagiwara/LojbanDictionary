@@ -74,7 +74,7 @@ class DictionaryModel: NSObject {
     }
     
     func search(query: String) -> [DictionaryEntry:Int] {
-        // Search entries by query, and returns ranked list (dictionary from entries to scores).
+        // Search entries by query, and returns matched entries and their scores.
         
         var entryScores = [DictionaryEntry:Int]()
         
@@ -95,5 +95,13 @@ class DictionaryModel: NSObject {
             }
         }
         return entryScores
+    }
+    
+    func topN(query: String, n: Int) -> [DictionaryEntry] {
+        // Search entries by query, and returns a ranked top N list of entries.
+        
+        let entryScores = self.search(query: query)
+        let sortedEntries: [DictionaryEntry] = Array(entryScores.keys.sorted(by: {entryScores[$0]! > entryScores[$1]!})[0..<n])
+        return sortedEntries
     }
 }
