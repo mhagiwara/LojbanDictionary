@@ -13,6 +13,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var queryTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
 
+    let cellIdentifier = "Cell";
+    
     // DictionaryModel used for search
     var dictModel = DictionaryModel()
     // Current search result (topN entries)
@@ -41,7 +43,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,11 +62,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "Cell";
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
-                                                 for: indexPath)
-        NSLog("\(cell)")
-        cell.textLabel?.text = "\(entries[indexPath.row].word)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        let currentEntry = entries[indexPath.row]
+        cell.textLabel?.text = currentEntry.word
+        cell.detailTextLabel?.text = currentEntry.english
         
         return cell
     }

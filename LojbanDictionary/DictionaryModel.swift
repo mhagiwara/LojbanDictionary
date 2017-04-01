@@ -80,9 +80,13 @@ class DictionaryModel: NSObject {
         
         for entry in self.entries {
             var score = 0
-            let wordRange = entry.word.range(of: query)
-            if (wordRange != nil) {
+            if let wordRange = entry.word.range(of: query) {
                 score += 10
+
+                // extra points if starts with the word
+                if (entry.word.startIndex == wordRange.lowerBound) {
+                    score += 10
+                }
             }
             
             let englishRange = entry.english.range(of: query)
