@@ -101,7 +101,11 @@ class DictionaryModel: NSObject {
         // Search entries by query, and returns a ranked top N list of entries.
         
         let entryScores = self.search(query: query)
-        let sortedEntries: [DictionaryEntry] = Array(entryScores.keys.sorted(by: {entryScores[$0]! > entryScores[$1]!})[0..<n])
-        return sortedEntries
+        if (entryScores.count > 0) {
+            let sortedEntries: [DictionaryEntry] = Array(entryScores.keys.sorted(by: {entryScores[$0]! > entryScores[$1]!})[0..<min(n, entryScores.count)])
+            return sortedEntries
+        } else {
+            return [DictionaryEntry]()
+        }
     }
 }

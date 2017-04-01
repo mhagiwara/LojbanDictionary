@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var queryTextField: UITextField!
-    
+    @IBOutlet weak var tableView: UITableView!
+
+    // DictionaryModel used for search
     var dictModel = DictionaryModel()
+    // Current search result (topN entries)
+    var entries = [DictionaryEntry]()
     
     func loadDictionary() {
         guard let path = Bundle.main.path(forResource: "cmavo", ofType: "json") else {
@@ -34,6 +38,12 @@ class ViewController: UIViewController {
         self.loadDictionary()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,8 +54,28 @@ class ViewController: UIViewController {
             return
         }
         NSLog("Query changed: \(queryText)")
-        self.dictModel.search(query: queryText)
+        entries = dictModel.topN(query: queryText, n: 30)
+        NSLog("Number of results: \(entries.count)")
+        tableView.reloadData()
     }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "Cell";
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
+                                                 for: indexPath)
+        NSLog("\(cell)")
+        cell.textLabel?.text = "\(entries[indexPath.row].word)"
+        
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return entries.count
+    }
 }
 

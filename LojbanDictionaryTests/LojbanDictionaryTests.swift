@@ -70,6 +70,11 @@ class LojbanDictionaryTests: XCTestCase {
         XCTAssertEqual("a", topn[0].english)
         XCTAssertEqual("a", topn[1].word)
         XCTAssertEqual("b", topn[1].english)
-
+        
+        topn = dict.topN(query: "XYZ", n: 1)
+        XCTAssertEqual(0, topn.count)
+        
+        topn = dict.topN(query: "a", n: 100)
+        XCTAssertEqual(2, topn.count)
     }
 }
