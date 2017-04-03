@@ -47,6 +47,40 @@ class DictionaryModel: NSObject {
 
     var entries = [DictionaryEntry]()
     
+    static func levenshtein(aStr: String, bStr: String) -> Int {
+        let a = Array(aStr.characters)
+        let b = Array(bStr.characters)
+
+        var dist = [[Int]]()
+        for _ in 0...a.count {
+            dist.append([Int](repeating: 0, count: b.count + 1))
+        }
+        
+        for i in 1...a.count {
+            dist[i][0] = i
+        }
+        
+        for j in 1...b.count {
+            dist[0][j] = j
+        }
+        
+        for i in 1...a.count {
+            for j in 1...b.count {
+                if a[i-1] == b[j-1] {
+                    dist[i][j] = dist[i-1][j-1]
+                } else {
+                    dist[i][j] = min(
+                        dist[i-1][j] + 1,
+                        dist[i][j-1] + 1,
+                        dist[i-1][j-1] + 1
+                    )
+                }
+            }
+        }
+        
+        return dist[a.count][b.count]
+    }
+    
     init(json: [String: Any]) {
 
         // Initialize DictionaryModel from a JSON object.

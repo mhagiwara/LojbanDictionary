@@ -11,6 +11,11 @@ import XCTest
 
 class LojbanDictionaryTests: XCTestCase {
     
+    func testLevenshteinDist() {
+        let dist = DictionaryModel.levenshtein(aStr: "kitten", bStr: "sitting")
+        XCTAssertEqual(3, dist)
+    }
+    
     func testDictionaryModel() {
         
         // Test DictionaryEntry
