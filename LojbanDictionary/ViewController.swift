@@ -15,6 +15,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     let cellIdentifier = "Cell";
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        NSLog("Preparing for seque.")
+    }
+    
     // DictionaryModel used for search
     var dictModel = DictionaryModel()
     // Current search result (topN entries)
@@ -59,6 +63,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         NSLog("Number of results: \(entries.count)")
         tableView.reloadData()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ShowEntry", sender: self)
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -69,7 +77,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-    
+        
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

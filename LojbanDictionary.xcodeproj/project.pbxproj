@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69740A911E92DA9500A4C64A /* DictionaryEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69740A901E92DA9500A4C64A /* DictionaryEntryViewController.swift */; };
 		698D828F1E6E5B3800CB8F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D828E1E6E5B3800CB8F53 /* AppDelegate.swift */; };
 		698D82911E6E5B3800CB8F53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D82901E6E5B3800CB8F53 /* ViewController.swift */; };
 		698D82941E6E5B3800CB8F53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 698D82921E6E5B3800CB8F53 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		69740A901E92DA9500A4C64A /* DictionaryEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryEntryViewController.swift; sourceTree = "<group>"; };
 		698D828B1E6E5B3800CB8F53 /* LojbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LojbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		698D828E1E6E5B3800CB8F53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		698D82901E6E5B3800CB8F53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				698D82901E6E5B3800CB8F53 /* ViewController.swift */,
 				69A32A361E6EFA97002B4E9D /* DictionaryModel.swift */,
 				698D82921E6E5B3800CB8F53 /* Main.storyboard */,
+				69740A901E92DA9500A4C64A /* DictionaryEntryViewController.swift */,
 				698D82951E6E5B3800CB8F53 /* Assets.xcassets */,
 				698D82971E6E5B3800CB8F53 /* LaunchScreen.storyboard */,
 				698D829A1E6E5B3800CB8F53 /* Info.plist */,
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				698D82911E6E5B3800CB8F53 /* ViewController.swift in Sources */,
+				69740A911E92DA9500A4C64A /* DictionaryEntryViewController.swift in Sources */,
 				69A32A371E6EFA97002B4E9D /* DictionaryModel.swift in Sources */,
 				698D828F1E6E5B3800CB8F53 /* AppDelegate.swift in Sources */,
 			);

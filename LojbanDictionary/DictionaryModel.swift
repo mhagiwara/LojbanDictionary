@@ -121,6 +121,10 @@ class DictionaryModel: NSObject {
                 if (entry.word.startIndex == wordRange.lowerBound) {
                     score += 10
                 }
+                
+                // reward points based on edit distance
+                let editDist = DictionaryModel.levenshtein(aStr: query, bStr: entry.word)
+                score += 10 - editDist
             }
             
             let englishRange = entry.english.range(of: query)
