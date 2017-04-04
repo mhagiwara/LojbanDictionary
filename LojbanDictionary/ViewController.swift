@@ -16,7 +16,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let cellIdentifier = "Cell";
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        NSLog("Preparing for seque.")
+        if (segue.identifier == "ShowEntry") {
+            let entryVC = segue.destination as! DictionaryEntryViewController
+            entryVC.entry = sender as! DictionaryEntry
+        }
     }
     
     // DictionaryModel used for search
@@ -65,7 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowEntry", sender: self)
+        self.performSegue(withIdentifier: "ShowEntry", sender: entries[indexPath.row])
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
