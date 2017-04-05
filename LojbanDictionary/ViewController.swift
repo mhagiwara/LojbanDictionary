@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ShowEntry") {
             let entryVC = segue.destination as! DictionaryEntryViewController
-            entryVC.entry = sender as! DictionaryEntry
+            entryVC.entry = (sender as! DictionaryEntry)
         }
     }
     
@@ -27,18 +27,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // Current search result (topN entries)
     var entries = [DictionaryEntry]()
     
-    func loadDictionary() {
-        guard let path = Bundle.main.path(forResource: "cmavo", ofType: "json") else {
-            return
+    func getJsonWithName(resourceName: String) -> [String: Any]? {
+        guard let path = Bundle.main.path(forResource: resourceName, ofType: "json") else {
+            return nil
         }
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped) else {
-            return
+            return nil
         }
         guard let json = try? JSONSerialization.jsonObject(with: data) as! [String: Any] else {
-            return
+            return nil
+        }
+        return json
+    }
+    
+    func loadDictionary() {
+        dictModel = DictionaryModel()
+        if let cmavoJson = getJsonWithName(resourceName: "cmavo") {
+            dictModel.loadJson(json: cmavoJson)
+        }
+        if let gismuJson = getJsonWithName(resourceName: "gismu") {
+            dictModel.loadJson(json: gismuJson)
         }
         
-        self.dictModel = DictionaryModel(json: json)
         queryTextField.addTarget(self, action: #selector(ViewController.queryChanged(_:)), for: .editingChanged)
     }
     

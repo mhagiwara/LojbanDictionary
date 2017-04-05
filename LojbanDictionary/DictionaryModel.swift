@@ -8,8 +8,14 @@
 
 import UIKit
 
+enum WordType {
+    case cmavo
+    case gismu
+}
+
 class DictionaryEntry: NSObject {
     
+    let type: WordType?
     let word: String
     let english: String
 
@@ -17,7 +23,11 @@ class DictionaryEntry: NSObject {
     let definition: String?
     let notes: String?
     
-    init?(json: [String: Any]) {
+    convenience init?(json: [String: Any]) {
+        self.init(json: json, type: nil)
+    }
+    
+    init?(json: [String: Any], type: WordType?) {
         
         // Initialize DictionaryEntry from a JSON object.
         
@@ -36,6 +46,7 @@ class DictionaryEntry: NSObject {
         self.selmaho = json["selmaho"] as? String
         self.definition = json["definition"] as? String
         self.notes = json["notes"] as? String
+        self.type = type
     }
     
     override public var description: String {
@@ -81,14 +92,13 @@ class DictionaryModel: NSObject {
         return dist[a.count][b.count]
     }
     
-    init(json: [String: Any]) {
-
-        // Initialize DictionaryModel from a JSON object.
+    func loadJson(json: [String: Any]) {
+        // Load dictionary entries from json
         for entryJson in json.values {
             guard let entryJsonAsDict = entryJson as? [String: Any] else {
                 continue
             }
-
+            
             guard let entry = DictionaryEntry(json: entryJsonAsDict) else {
                 continue
             }

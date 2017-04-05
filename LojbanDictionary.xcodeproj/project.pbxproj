@@ -15,6 +15,7 @@
 		698D82991E6E5B3800CB8F53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 698D82971E6E5B3800CB8F53 /* LaunchScreen.storyboard */; };
 		698D82A41E6E5B3800CB8F53 /* LojbanDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D82A31E6E5B3800CB8F53 /* LojbanDictionaryTests.swift */; };
 		698D82B01E6E5D0200CB8F53 /* cmavo.json in Resources */ = {isa = PBXBuildFile; fileRef = 698D82AF1E6E5D0200CB8F53 /* cmavo.json */; };
+		699828031E95A5A0003BCDA8 /* gismu.json in Resources */ = {isa = PBXBuildFile; fileRef = 699828021E95A5A0003BCDA8 /* gismu.json */; };
 		69A32A371E6EFA97002B4E9D /* DictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A32A361E6EFA97002B4E9D /* DictionaryModel.swift */; };
 		69A32A381E6EFE98002B4E9D /* DictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A32A361E6EFA97002B4E9D /* DictionaryModel.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		698D82A31E6E5B3800CB8F53 /* LojbanDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LojbanDictionaryTests.swift; sourceTree = "<group>"; };
 		698D82A51E6E5B3800CB8F53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		698D82AF1E6E5D0200CB8F53 /* cmavo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cmavo.json; sourceTree = "<group>"; };
+		699828021E95A5A0003BCDA8 /* gismu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gismu.json; sourceTree = "<group>"; };
 		69A32A361E6EFA97002B4E9D /* DictionaryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 		698D82AE1E6E5C8B00CB8F53 /* Dictionary Files */ = {
 			isa = PBXGroup;
 			children = (
+				699828021E95A5A0003BCDA8 /* gismu.json */,
 				698D82AF1E6E5D0200CB8F53 /* cmavo.json */,
 			);
 			name = "Dictionary Files";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				698D82B01E6E5D0200CB8F53 /* cmavo.json in Resources */,
+				699828031E95A5A0003BCDA8 /* gismu.json in Resources */,
 				698D82991E6E5B3800CB8F53 /* LaunchScreen.storyboard in Resources */,
 				698D82961E6E5B3800CB8F53 /* Assets.xcassets in Resources */,
 				698D82941E6E5B3800CB8F53 /* Main.storyboard in Resources */,

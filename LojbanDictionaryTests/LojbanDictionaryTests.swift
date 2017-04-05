@@ -27,6 +27,7 @@ class LojbanDictionaryTests: XCTestCase {
         
         entry = DictionaryEntry(json:
             ["word": "a", "english": "b", "selmaho": "A"])
+        XCTAssertNil(entry!.type)
         XCTAssertEqual("a", entry!.word)
         XCTAssertEqual("b", entry!.english)
         XCTAssertEqual("A", entry!.selmaho)
@@ -34,16 +35,22 @@ class LojbanDictionaryTests: XCTestCase {
 
         entry = DictionaryEntry(json:
             ["word": "a", "english": "b", "selmaho": 1])
+        XCTAssertNil(entry!.type)
         XCTAssertEqual("a", entry!.word)
         XCTAssertEqual("b", entry!.english)
         XCTAssertNil(entry!.selmaho)
+        
+        entry = DictionaryEntry(json:
+            ["word": "a", "english": "b", "selmaho": "A"], type: .cmavo)
+        XCTAssertEqual(entry!.type, .cmavo)
         
         // Test DictionaryModel
         var dict = DictionaryModel()
         
         XCTAssertEqual(0, dict.count())
         
-        dict = DictionaryModel(json: [
+        dict = DictionaryModel()
+        dict.loadJson(json: [
             "a": ["word": "a", "english": "A"],
             "b": ["word": "b", "english": "B"],
             "x": ["foo", "bar"],     // missing "word"
@@ -59,7 +66,8 @@ class LojbanDictionaryTests: XCTestCase {
         XCTAssertEqual(1, entryScores.count)
         XCTAssertEqual("b", entryScores.keys.first?.word)
         
-        dict = DictionaryModel(json: [
+        dict = DictionaryModel()
+        dict.loadJson(json: [
             "a": ["word": "a", "english": "a"],
             "b": ["word": "a", "english": "b"],
             ])
