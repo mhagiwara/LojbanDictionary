@@ -43,10 +43,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func loadDictionary() {
         dictModel = DictionaryModel()
         if let cmavoJson = getJsonWithName(resourceName: "cmavo") {
-            dictModel.loadJson(json: cmavoJson)
+            dictModel.loadJson(json: cmavoJson, type: .cmavo)
         }
         if let gismuJson = getJsonWithName(resourceName: "gismu") {
-            dictModel.loadJson(json: gismuJson)
+            dictModel.loadJson(json: gismuJson, type: .gismu)
         }
         
         queryTextField.addTarget(self, action: #selector(ViewController.queryChanged(_:)), for: .editingChanged)
@@ -87,6 +87,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let currentEntry = entries[indexPath.row]
         cell.textLabel?.text = currentEntry.word
         cell.detailTextLabel?.text = currentEntry.english
+        if (currentEntry.type == .gismu) {
+            cell.imageView?.image = UIImage(named: "img-gismu.png")
+            cell.imageView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        } else if (currentEntry.type == .cmavo) {
+            cell.imageView?.image = UIImage(named: "img-cmavo.png")
+            cell.imageView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        }
+    
         
         return cell
     }

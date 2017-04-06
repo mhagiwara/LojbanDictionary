@@ -92,19 +92,23 @@ class DictionaryModel: NSObject {
         return dist[a.count][b.count]
     }
     
-    func loadJson(json: [String: Any]) {
-        // Load dictionary entries from json
+    func loadJson(json: [String: Any], type: WordType?) {
+        // Load dictionary entries from json with type
         for entryJson in json.values {
             guard let entryJsonAsDict = entryJson as? [String: Any] else {
                 continue
             }
             
-            guard let entry = DictionaryEntry(json: entryJsonAsDict) else {
+            guard let entry = DictionaryEntry(json: entryJsonAsDict, type: type) else {
                 continue
             }
             
             self.entries.append(entry)
         }
+    }
+    
+    func loadJson(json: [String: Any]) {
+        loadJson(json: json, type: nil)
     }
     
     override init() {
