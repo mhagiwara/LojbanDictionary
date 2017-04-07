@@ -11,6 +11,8 @@
 		69522BCF1E96C2AA00C2C32C /* img-gismu.png in Resources */ = {isa = PBXBuildFile; fileRef = 69522BCE1E96C2AA00C2C32C /* img-gismu.png */; };
 		69522BD21E96C80F00C2C32C /* img-fuhivla.png in Resources */ = {isa = PBXBuildFile; fileRef = 69522BD01E96C80F00C2C32C /* img-fuhivla.png */; };
 		69522BD31E96C80F00C2C32C /* img-lujvo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69522BD11E96C80F00C2C32C /* img-lujvo.png */; };
+		696B75CC1E98466900A6D741 /* lujvo2.json in Resources */ = {isa = PBXBuildFile; fileRef = 696B75CB1E98466900A6D741 /* lujvo2.json */; };
+		696B75CE1E9846E200A6D741 /* lujvo1.json in Resources */ = {isa = PBXBuildFile; fileRef = 696B75CD1E9846E200A6D741 /* lujvo1.json */; };
 		69740A911E92DA9500A4C64A /* DictionaryEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69740A901E92DA9500A4C64A /* DictionaryEntryViewController.swift */; };
 		698D828F1E6E5B3800CB8F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D828E1E6E5B3800CB8F53 /* AppDelegate.swift */; };
 		698D82911E6E5B3800CB8F53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D82901E6E5B3800CB8F53 /* ViewController.swift */; };
@@ -39,6 +41,8 @@
 		69522BCE1E96C2AA00C2C32C /* img-gismu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-gismu.png"; sourceTree = "<group>"; };
 		69522BD01E96C80F00C2C32C /* img-fuhivla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-fuhivla.png"; sourceTree = "<group>"; };
 		69522BD11E96C80F00C2C32C /* img-lujvo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-lujvo.png"; sourceTree = "<group>"; };
+		696B75CB1E98466900A6D741 /* lujvo2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lujvo2.json; sourceTree = "<group>"; };
+		696B75CD1E9846E200A6D741 /* lujvo1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lujvo1.json; sourceTree = "<group>"; };
 		69740A901E92DA9500A4C64A /* DictionaryEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryEntryViewController.swift; sourceTree = "<group>"; };
 		698D828B1E6E5B3800CB8F53 /* LojbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LojbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		698D828E1E6E5B3800CB8F53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 			children = (
 				699828021E95A5A0003BCDA8 /* gismu.json */,
 				698D82AF1E6E5D0200CB8F53 /* cmavo.json */,
+				696B75CD1E9846E200A6D741 /* lujvo1.json */,
+				696B75CB1E98466900A6D741 /* lujvo2.json */,
 			);
 			name = "Dictionary Files";
 			sourceTree = "<group>";
@@ -226,9 +232,11 @@
 				699828031E95A5A0003BCDA8 /* gismu.json in Resources */,
 				698D82991E6E5B3800CB8F53 /* LaunchScreen.storyboard in Resources */,
 				69522BD21E96C80F00C2C32C /* img-fuhivla.png in Resources */,
+				696B75CE1E9846E200A6D741 /* lujvo1.json in Resources */,
 				698D82961E6E5B3800CB8F53 /* Assets.xcassets in Resources */,
 				69522BD31E96C80F00C2C32C /* img-lujvo.png in Resources */,
 				69522BCD1E96C22400C2C32C /* img-cmavo.png in Resources */,
+				696B75CC1E98466900A6D741 /* lujvo2.json in Resources */,
 				69522BCF1E96C2AA00C2C32C /* img-gismu.png in Resources */,
 				698D82941E6E5B3800CB8F53 /* Main.storyboard in Resources */,
 			);

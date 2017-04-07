@@ -11,6 +11,7 @@ import UIKit
 enum WordType {
     case cmavo
     case gismu
+    case lujvo
 }
 
 class DictionaryEntry: NSObject {
@@ -22,6 +23,30 @@ class DictionaryEntry: NSObject {
     let selmaho: String?
     let definition: String?
     let notes: String?
+    
+    var typeImage: UIImage? {
+        if (type == .gismu) {
+            return UIImage(named: "img-gismu.png")
+        } else if (type == .cmavo) {
+            return UIImage(named: "img-cmavo.png")
+        } else if (type == .lujvo) {
+            return UIImage(named: "img-lujvo.png")
+        }
+        
+        return nil
+    }
+    
+    var typeLabel: String? {
+        if (type == .gismu) {
+            return "gismu"
+        } else if (type == .cmavo) {
+            return "cmavo"
+        } else if (type == .lujvo) {
+            return "lujvo"
+        }
+        
+        return nil
+    }
     
     convenience init?(json: [String: Any]) {
         self.init(json: json, type: nil)

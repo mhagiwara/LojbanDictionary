@@ -28,13 +28,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var entries = [DictionaryEntry]()
     
     func getJsonWithName(resourceName: String) -> [String: Any]? {
+        NSLog("Loading dictionary with resourceName: \(resourceName)")
         guard let path = Bundle.main.path(forResource: resourceName, ofType: "json") else {
+            NSLog("Couldn't find the JSON file: \(resourceName)")
             return nil
         }
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped) else {
+            NSLog("Couldn't load the data: \(resourceName)")
             return nil
         }
         guard let json = try? JSONSerialization.jsonObject(with: data) as! [String: Any] else {
+            NSLog("Couldn't de-serialize the JSON file: \(resourceName)")
             return nil
         }
         return json
@@ -48,7 +52,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let gismuJson = getJsonWithName(resourceName: "gismu") {
             dictModel.loadJson(json: gismuJson, type: .gismu)
         }
-        
+        if let lujvo1Json = getJsonWithName(resourceName: "lujvo1") {
+            dictModel.loadJson(json: lujvo1Json, type: .lujvo)
+        }
+        if let lujvo2Json = getJsonWithName(resourceName: "lujvo2") {
+            dictModel.loadJson(json: lujvo2Json, type: .lujvo)
+        }
         queryTextField.addTarget(self, action: #selector(ViewController.queryChanged(_:)), for: .editingChanged)
     }
     
@@ -87,14 +96,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let currentEntry = entries[indexPath.row]
         cell.textLabel?.text = currentEntry.word
         cell.detailTextLabel?.text = currentEntry.english
-        if (currentEntry.type == .gismu) {
-            cell.imageView?.image = UIImage(named: "img-gismu.png")
-            cell.imageView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        } else if (currentEntry.type == .cmavo) {
-            cell.imageView?.image = UIImage(named: "img-cmavo.png")
+        if (currentEntry.type != nil) {
+            cell.imageView?.image = currentEntry.typeImage
             cell.imageView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         }
-    
         
         return cell
     }
