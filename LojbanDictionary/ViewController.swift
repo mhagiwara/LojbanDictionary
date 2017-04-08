@@ -58,6 +58,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let lujvo2Json = getJsonWithName(resourceName: "lujvo2") {
             dictModel.loadJson(json: lujvo2Json, type: .lujvo)
         }
+        if let fuhivlaJson = getJsonWithName(resourceName: "fuhivla") {
+            dictModel.loadJson(json: fuhivlaJson, type: .fuhivla)
+        }
         queryTextField.addTarget(self, action: #selector(ViewController.queryChanged(_:)), for: .editingChanged)
     }
     

@@ -12,6 +12,7 @@ enum WordType {
     case cmavo
     case gismu
     case lujvo
+    case fuhivla
 }
 
 class DictionaryEntry: NSObject {
@@ -25,27 +26,33 @@ class DictionaryEntry: NSObject {
     let notes: String?
     
     var typeImage: UIImage? {
-        if (type == .gismu) {
-            return UIImage(named: "img-gismu.png")
-        } else if (type == .cmavo) {
+        switch type {
+        case .cmavo?:
             return UIImage(named: "img-cmavo.png")
-        } else if (type == .lujvo) {
+        case .gismu?:
+            return UIImage(named: "img-gismu.png")
+        case .lujvo?:
             return UIImage(named: "img-lujvo.png")
+        case .fuhivla?:
+            return UIImage(named: "img-fuhivla.png")
+        default:
+            return nil
         }
-        
-        return nil
     }
     
     var typeLabel: String? {
-        if (type == .gismu) {
-            return "gismu"
-        } else if (type == .cmavo) {
+        switch type {
+        case .cmavo?:
             return "cmavo"
-        } else if (type == .lujvo) {
+        case .gismu?:
+            return "gismu"
+        case .lujvo?:
             return "lujvo"
+        case .fuhivla?:
+            return "fu'ivla"
+        default:
+            return nil
         }
-        
-        return nil
     }
     
     convenience init?(json: [String: Any]) {
