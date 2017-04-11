@@ -55,6 +55,21 @@ class DictionaryEntry: NSObject {
         }
     }
     
+    var typeCredit: String? {
+        switch type {
+        case .cmavo?:
+            return "Icon image by Nikita Golubev (FLATICON)"
+        case .gismu?:
+            return "Icon image by Prosymbols (FLATICON)"
+        case .lujvo?:
+            return "Icon image by Prosymbols (FLATICON)"
+        case .fuhivla?:
+            return "Icon image by Freepik (FLATICON)"
+        default:
+            return nil
+        }
+    }
+    
     convenience init?(json: [String: Any]) {
         self.init(json: json, type: nil)
     }

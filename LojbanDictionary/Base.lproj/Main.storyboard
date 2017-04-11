@@ -153,6 +153,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="credit" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w50-Uj-aC6">
+                                <rect key="frame" x="16" y="632.5" width="335" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -163,19 +169,23 @@
                             <constraint firstItem="L3z-NB-94b" firstAttribute="top" secondItem="yvH-2e-TOR" secondAttribute="bottom" constant="20" id="9Mb-p4-I9Y"/>
                             <constraint firstItem="yvH-2e-TOR" firstAttribute="top" secondItem="c4v-GD-h1F" secondAttribute="bottom" constant="8" id="ERj-pn-Nj9"/>
                             <constraint firstItem="w0l-r9-v7g" firstAttribute="top" secondItem="2XY-D1-end" secondAttribute="bottom" constant="20" id="GwY-K2-7IT"/>
+                            <constraint firstItem="nOy-5e-MvY" firstAttribute="top" secondItem="w50-Uj-aC6" secondAttribute="bottom" constant="20" id="Hs2-MT-8ON"/>
                             <constraint firstItem="w0l-r9-v7g" firstAttribute="leading" secondItem="NcN-Qt-Y0i" secondAttribute="trailing" constant="24" id="NA6-WN-owq"/>
                             <constraint firstItem="NcN-Qt-Y0i" firstAttribute="top" secondItem="2XY-D1-end" secondAttribute="bottom" constant="20" id="Nvh-5N-2df"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yvH-2e-TOR" secondAttribute="trailing" constant="8" id="Q17-6w-ZYZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="L3z-NB-94b" secondAttribute="trailing" constant="8" id="a7n-hQ-Aab"/>
                             <constraint firstItem="NcN-Qt-Y0i" firstAttribute="leading" secondItem="APd-ui-vPr" secondAttribute="leadingMargin" constant="14" id="bib-Vb-fif"/>
+                            <constraint firstItem="w50-Uj-aC6" firstAttribute="leading" secondItem="APd-ui-vPr" secondAttribute="leadingMargin" id="cTv-yr-dMV"/>
                             <constraint firstItem="0a3-H1-IkK" firstAttribute="top" secondItem="NcN-Qt-Y0i" secondAttribute="bottom" id="ck4-AU-Js1"/>
                             <constraint firstItem="c4v-GD-h1F" firstAttribute="leading" secondItem="APd-ui-vPr" secondAttribute="leadingMargin" id="ha7-7z-uN8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c4v-GD-h1F" secondAttribute="trailing" constant="8" id="uPp-Di-eLE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Yj-ZT-sJv" secondAttribute="trailing" constant="20" id="vXs-oB-yWF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w50-Uj-aC6" secondAttribute="trailing" constant="8" id="wAp-4m-Mpx"/>
                             <constraint firstItem="0a3-H1-IkK" firstAttribute="leading" secondItem="APd-ui-vPr" secondAttribute="leading" constant="18" id="zeY-4H-CHc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="creditLabel" destination="w50-Uj-aC6" id="6ZA-xB-kJB"/>
                         <outlet property="definitionLabel" destination="yvH-2e-TOR" id="OC0-WS-Bh0"/>
                         <outlet property="englishLabel" destination="c4v-GD-h1F" id="TnZ-gg-igg"/>
                         <outlet property="notesLabel" destination="L3z-NB-94b" id="9fc-0R-LmM"/>

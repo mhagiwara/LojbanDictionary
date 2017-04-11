@@ -17,6 +17,7 @@ class DictionaryEntryViewController: UIViewController {
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var wordTypeImage: UIImageView!
     @IBOutlet weak var wordTypeLabel: UILabel!
+    @IBOutlet weak var creditLabel: UILabel!
 
     var entry: DictionaryEntry?
     
@@ -32,6 +33,7 @@ class DictionaryEntryViewController: UIViewController {
             notesLabel.sizeToFit()
             wordTypeImage.image = entry!.typeImage
             wordTypeLabel.text = entry!.typeLabel
+            creditLabel.text = entry!.typeCredit
         }
     }
     
